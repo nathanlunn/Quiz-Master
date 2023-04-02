@@ -13,3 +13,9 @@ MonoBehaviour:
   m_Name: Question 1
   m_EditorClassIdentifier: 
   question: What law from Witcher lore granted Geralt "possession" of Ciri?
+  answers:
+  - Law of Surprise
+  - Law of Demand
+  - Law of Poise
+  - Law of Slavery
+  rightAnswerIndex: 0

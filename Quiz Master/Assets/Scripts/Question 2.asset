@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   question: Geralt carries two swords with him, what two materials are they made
     of?
+  answers:
+  - Steel and Copper
+  - Steel and Silver
+  - Steel and Adamant
+  - Steel and Platinum
+  rightAnswerIndex: 1
