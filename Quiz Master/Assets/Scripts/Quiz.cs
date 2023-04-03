@@ -33,5 +33,12 @@ public class Quiz : MonoBehaviour
             Image buttonImage = answerButtons[index].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
         }
+        else
+        {
+            int correctAnswerIndex = question.GetCorrectAnswerIndex();
+            questionText.text = $"Wrong! the correct answer is: {question.GetAnswer(correctAnswerIndex)}";
+            Image correctButtonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
+            correctButtonImage.sprite = correctAnswerSprite;
+        }
     }
 }
