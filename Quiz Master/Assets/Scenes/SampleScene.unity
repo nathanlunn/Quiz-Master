@@ -248,6 +248,7 @@ MonoBehaviour:
   - {fileID: 1424365405}
   defaultAnswerSprite: {fileID: 21300000, guid: d16ac432c3f72c446a1871a1216e9fdf, type: 3}
   correctAnswerSprite: {fileID: 21300000, guid: 621adcfdc95a1754a8a53ff34cb64da1, type: 3}
+  timerImage: {fileID: 125562542}
 --- !u!1 &125562540
 GameObject:
   m_ObjectHideFlags: 0
@@ -1277,6 +1278,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToCompleteQuestion: 30
   timeToShowCorrectAnswer: 10
+  loadNextQuestion: 0
   fillFraction: 0
   isAnsweringQuestion: 0
 --- !u!4 &1401599704
