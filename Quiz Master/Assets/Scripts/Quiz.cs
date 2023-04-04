@@ -48,4 +48,13 @@ public class Quiz : MonoBehaviour
             answerTMP.text = question.GetAnswer(i);
         }
     }
+
+    void SetButtonState(bool state)
+    {
+        for(int i = 0; i < answerButtons.Length; i++)
+        {
+            Button answerButton = answerButtons[i].GetComponent<Button>();
+            answerButton.interactable = state;
+        }
+    }
 }
