@@ -16,7 +16,8 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
-        DisplayQuestion();
+        // DisplayQuestion();
+        GetNextQuestion();
     }
 
     public void OnAnswerSelected(int index)
