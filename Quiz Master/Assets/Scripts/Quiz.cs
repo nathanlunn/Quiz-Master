@@ -33,6 +33,11 @@ public class Quiz : MonoBehaviour
     void Update()
     {
         timerImage.fillAmount = timer.fillFraction;
+        if(timer.loadNextQuestion)
+        {
+            GetNextQuestion();
+            timer.loadNextQuestion = false;
+        }
     }
 
     public void OnAnswerSelected(int index)
@@ -54,6 +59,7 @@ public class Quiz : MonoBehaviour
         }
 
         SetButtonState(false);
+        timer.CancelTimer();
     }
 
     //untested feature
