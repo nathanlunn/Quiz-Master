@@ -40,9 +40,11 @@ public class Quiz : MonoBehaviour
         SetButtonState(false);
     }
 
+    //untested feature
     void GetNextQuestion() 
     {
         SetButtonState(true);
+        SetDefaultButtonSprites();
         DisplayQuestion();
     }
 
@@ -63,6 +65,15 @@ public class Quiz : MonoBehaviour
         {
             Button answerButton = answerButtons[i].GetComponent<Button>();
             answerButton.interactable = state;
+        }
+    }
+
+    void SetDefaultButtonSprites()
+    {
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            Image buttonImage = answerButtons[i].GetComponent<Image>();
+            buttonImage.sprite = defaultAnswerSprite;
         }
     }
 }
