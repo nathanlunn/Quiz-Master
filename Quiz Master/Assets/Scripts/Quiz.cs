@@ -25,8 +25,14 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
-        // DisplayQuestion();
+        timer = FindObjectOfType<Timer>();
         GetNextQuestion();
+        // DisplayQuestion();
+    }
+
+    void Update()
+    {
+        timerImage.fillAmount = timer.fillFraction;
     }
 
     public void OnAnswerSelected(int index)
