@@ -16,13 +16,7 @@ public class Quiz : MonoBehaviour
 
     void Start()
     {
-        questionText.text = question.GetQuestion();
-
-        for (int i = 0; i < answerButtons.Length; i++)
-        {
-            TextMeshProUGUI answerTMP = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            answerTMP.text = question.GetAnswer(i);
-        }
+        DisplayQuestion();
     }
 
     public void OnAnswerSelected(int index)
@@ -41,6 +35,17 @@ public class Quiz : MonoBehaviour
             questionText.text = $"Wrong! the correct answer is:\n{question.GetAnswer(correctAnswerIndex)}";
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
+        }
+    }
+
+    void DisplayQuestion()
+    {
+        questionText.text = question.GetQuestion();
+
+        for (int i = 0; i < answerButtons.Length; i++)
+        {
+            TextMeshProUGUI answerTMP = answerButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            answerTMP.text = question.GetAnswer(i);
         }
     }
 }
