@@ -1277,6 +1277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeToCompleteQuestion: 30
   timeToShowCorrectAnswer: 10
+  isAnsweringQuestion: 0
 --- !u!4 &1401599704
 Transform:
   m_ObjectHideFlags: 0

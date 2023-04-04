@@ -6,6 +6,9 @@ public class Timer : MonoBehaviour
 {
     [SerializeField] float timeToCompleteQuestion = 30f;
     [SerializeField] float timeToShowCorrectAnswer = 10f;
+    
+    public bool isAnsweringQuestion = false;
+
     float timerValue;
 
     void Update()
@@ -17,10 +20,23 @@ public class Timer : MonoBehaviour
     {
         timerValue -= Time.deltaTime;
 
-        if(timerValue <= 0)
+        if(isAnsweringQuestion)
         {
-            timerValue = timeToCompleteQuestion;
+            if(timerValue <= 0)
+            {
+                isAnsweringQuestion = false;
+                timerValue = timeToShowCorrectAnswer;
+            }
         }
+        else
+        {
+            if(timerValue <= 0)
+            {
+                isAnsweringQuestion = true;
+                timerValue = timeToCompleteQuestion;
+            }
+        }
+
         Debug.Log(timerValue);
     }
 }
