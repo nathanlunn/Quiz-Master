@@ -36,6 +36,14 @@ public class Quiz : MonoBehaviour
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
         }
+
+        SetButtonState(false);
+    }
+
+    void GetNextQuestion() 
+    {
+        SetButtonState(true);
+        DisplayQuestion();
     }
 
     void DisplayQuestion()
