@@ -1276,11 +1276,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e75aad0bebc0064b8a1a6bdea044049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToCompleteQuestion: 30
-  timeToShowCorrectAnswer: 10
+  timeToCompleteQuestion: 11
+  timeToShowCorrectAnswer: 5
   loadNextQuestion: 0
-  fillFraction: 0
   isAnsweringQuestion: 0
+  fillFraction: 0
 --- !u!4 &1401599704
 Transform:
   m_ObjectHideFlags: 0
