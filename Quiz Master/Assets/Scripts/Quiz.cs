@@ -29,15 +29,18 @@ public class Quiz : MonoBehaviour
     ScoreKeeper scoreKeeper;
 
     [Header("Progress")]
-    [SerializeField] Slider slider;
-    int progress = 0;
+    [SerializeField] Slider progressBar;
+    int progress;
+    public bool isComplete = false;
 
 
     void Start()
     {
         timer = FindObjectOfType<Timer>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
-        slider.value = progress;
+        progressBar.value = 0;
+        progressBar.maxValue = questions.Count;
+        
     }
 
     void Update()
@@ -65,7 +68,12 @@ public class Quiz : MonoBehaviour
         timer.CancelTimer();
         scoreText.text = $"Score: {scoreKeeper.CalculateScore()}%";
         progress++;
-        slider.value = progress;
+        progressBar.value = progress;
+
+        if(progressBar.value == progressBar.maxValue)
+        {
+            isComplete = true;
+        }
     }
 
     void DisplayAnswer(int index)
