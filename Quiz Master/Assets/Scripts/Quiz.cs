@@ -89,6 +89,7 @@ public class Quiz : MonoBehaviour
     {
         int index = Random.Range(0, questions.Count);
         currentQuestion = questions[index];
+
         if(questions.Contains(currentQuestion))
         {
             questions.Remove(currentQuestion);
