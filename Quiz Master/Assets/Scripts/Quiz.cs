@@ -24,12 +24,20 @@ public class Quiz : MonoBehaviour
     [SerializeField] Image timerImage;
     Timer timer;
 
+    [Header("Score")]
+    [SerializeField] TextMeshProUGUI scoreText;
+    ScoreKeeper scoreKeeper;
+
+    [Header("Progress")]
+    [SerializeField] Slider slider;
+    int progress = 0;
+
 
     void Start()
     {
         timer = FindObjectOfType<Timer>();
-        GetNextQuestion();
-        // DisplayQuestion();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        slider.value = progress;
     }
 
     void Update()
@@ -55,17 +63,21 @@ public class Quiz : MonoBehaviour
         DisplayAnswer(index);
         SetButtonState(false);
         timer.CancelTimer();
+        scoreText.text = $"Score: {scoreKeeper.CalculateScore()}%";
+        progress++;
+        slider.value = progress;
     }
 
     void DisplayAnswer(int index)
     {
-        Image buttonImage;
+        Image buttonImage = answerButtons[0].GetComponent<Image>();
 
         if(index == currentQuestion.GetCorrectAnswerIndex())
         {
             questionText.text = "Correct!";
             buttonImage = answerButtons[index].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
+            scoreKeeper.IncrementCorrectAnswers();
         }
         else
         {
@@ -74,15 +86,19 @@ public class Quiz : MonoBehaviour
             buttonImage = answerButtons[correctAnswerIndex].GetComponent<Image>();
             buttonImage.sprite = correctAnswerSprite;
         }
-    } 
+    }
 
     //untested feature
     void GetNextQuestion() 
     {
-        SetButtonState(true);
-        SetDefaultButtonSprites();
-        GetRandomQuestion();
-        DisplayQuestion();
+        if(questions.Count > 0)
+        {
+            SetButtonState(true);
+            SetDefaultButtonSprites();
+            GetRandomQuestion();
+            DisplayQuestion();
+            scoreKeeper.IncrementQuestionsSeen();
+        }
     }
 
     void GetRandomQuestion()
