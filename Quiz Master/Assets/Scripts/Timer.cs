@@ -7,10 +7,8 @@ public class Timer : MonoBehaviour
     [SerializeField] float timeToCompleteQuestion = 30f;
     [SerializeField] float timeToShowCorrectAnswer = 10f;
 
-    public bool loadNextQuestion;
     public bool isAnsweringQuestion = false;
     public float fillFraction;
-
     float timerValue;
 
     void Update()
@@ -18,15 +16,10 @@ public class Timer : MonoBehaviour
         UpdateTimer();
     }
 
-    public void CancelTimer()
-    {
-        timerValue = 0;
-    }
-
     void UpdateTimer()
     {
         timerValue -= Time.deltaTime;
-
+        
         if(isAnsweringQuestion)
         {
             if(timerValue > 0)
@@ -49,10 +42,7 @@ public class Timer : MonoBehaviour
             {
                 isAnsweringQuestion = true;
                 timerValue = timeToCompleteQuestion;
-                loadNextQuestion = true;
             }
         }
-
-        Debug.Log($"{isAnsweringQuestion}: {timerValue}, {fillFraction}");
     }
 }
